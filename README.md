@@ -9,4 +9,5 @@ I ordered components individually in a different time frame. As a result I had t
 
 ## 2.0 Environment Setup 
 When you connected to wi-fi let's make Ubuntu work for us. 
+
 `Git clone https://github.com/dusty-nv/jetson-inference`

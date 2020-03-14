@@ -12,3 +12,4 @@ When you connected to wi-fi let's make Ubuntu work for us. First, I tried to wor
 To download the repository which contains everything to get started type in the terminal of Jetson:
 
 `git clone https://github.com/dusty-nv/jetson-inference`
+*Hello AI World* is great for the beginning to get a grasp of capabilities of Jetson Nano. I will cover steps directly related to this project. 

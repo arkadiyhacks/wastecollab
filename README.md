@@ -47,7 +47,15 @@ To examine the swap memory:
 
 You can notice that the amount per each CPU increased to 1.5GB - now we have a swap memory of 6GB in total. You can also see that in the in the *System Monitor* App under *Resources*. This app also allows to monitor the usage of your memory throughout inferencing. 
 
-## 2.2 Python3 and Pip 
+## 2.2 Max Performance mode
+Now it's time to power Jetson Nano with 5V-4A power supply. Don't forget to put jumper pin/wire on the connectors. 
+
+Jetson Nano can run either on 5W or 10W. We want 10W, so run:
+
+    $ sudo nvpmodel -m 0
+    $ sudo ~/jetson_clocks.sh
+
+## 2.3 Python3 and Pip 
 Python3 comes preinstalled to Jetson Nano as a part of JetPack. You can check your version by running 
 
     python3 --version
@@ -60,7 +68,7 @@ Pip is python package installer. To install pip run
 
     sudo apt install python3-pip
 
-## 2.3 Virtual Environment
+## 2.4 Virtual Environment
 I was naive and decided not to install virtual environment from the beginning of the project. Then I learnt that some packages are incompatible with others so I had to reflash the SD card multiple times. Please learn on my mistakes and work in virtual environment, it would save you from stress and tears. 
 
 To install virtual environment package
@@ -112,9 +120,20 @@ To exit the virtual environment:
 
     workon v1
 
-## 3.0 Installing OpenCV
+## 3.0 Installing OpenCV 3.4.4
+uninstall preinstalled opencv
+
+    sudo apt-get purge libopencv*
+
+install numpy 
+
+    pip3 install numpy
+
+
 
 https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/
 
+## 4.0 Running YOLOv3-tiny 
 
+https://jkjung-avt.github.io/yolov3/
 

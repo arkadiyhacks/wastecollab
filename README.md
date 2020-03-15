@@ -135,5 +135,6 @@ https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/
 
 ## 4.0 Running YOLOv3-tiny 
 
+https://www.youtube.com/watch?v=p1fJFG1S6Sw
 https://jkjung-avt.github.io/yolov3/
 

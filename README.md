@@ -11,11 +11,11 @@ I ordered components individually in a different time frame. As a result I had t
 When you connected to wi-fi let's make Ubuntu work for us. First, I tried to work via SSH - that is connecting to the Nvidia Jetson Nano directly through my laptop. However, I found it limiting and moved to the work in the environment of Jetson Nano. 
 
 Upgrading and updating preinstalled packages and libraries:
+    
+$`sudo apt-get update`
 
-```
-sudo apt-get update
-sudo apt-get upgrade
-```
+$`sudo apt-get upgrade`
+
 
 ## Swap file
 By default Jetson Nano has 2GB of swap memory that allows for extra RAM memory if needed. When performing heavy inference it becomes insufficient, so it is essential to upgrade the swap. I prefer the method created by Jetson Hacks. 

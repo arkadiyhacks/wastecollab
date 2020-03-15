@@ -61,9 +61,9 @@ Pip is python package installer. To install pip run
     sudo apt install python3-pip
 
 ## 2.3 Virtual Environment
-I was naive and decided not to install virtual environment from the beginning, partially because I assumed eveyrthing would work fine. Then I learnt that some packages are incompatible with others so I had to reflash the SD card multiple times. Please learn on my mistakes and work in virtual environment, it would save you from stress and tears. 
+I was naive and decided not to install virtual environment from the beginning of the project. Then I learnt that some packages are incompatible with others so I had to reflash the SD card multiple times. Please learn on my mistakes and work in virtual environment, it would save you from stress and tears. 
 
-To install virtual environment
+To install virtual environment package
 
     sudo pip3 install virtualenv
 
@@ -112,6 +112,9 @@ To exit the virtual environment:
 
     workon v1
 
+## 3.0 Installing OpenCV
+
+https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/
 
 
 

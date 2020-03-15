@@ -1,7 +1,7 @@
 import glob, os
 
 
-dataset_path = '/Users/NotForYou/Desktop/YOLO/darknet/build/darknet/x64/data/obj'
+dataset_path = '/Users/NotForYou/Desktop/darknet/build/darknet/x64/data/obj'
 
 # Percentage of images to be used for the test set
 percentage_test = 10;

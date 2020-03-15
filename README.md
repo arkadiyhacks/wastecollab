@@ -12,21 +12,27 @@ When you connected to wi-fi let's make Ubuntu work for us. First, I tried to wor
 
 Upgrading and updating preinstalled packages and libraries:
 
-`sudo apt-get update`
-`sudo apt-get upgrade`
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
 
 ## Swap file
 By default Jetson Nano has 2GB of swap memory that allows for extra RAM memory if needed. When performing heavy inference it becomes insufficient, so it is essential to upgrade the swap. I prefer the method created by Jetson Hacks. 
 
 To examine the swap memory:
+
 `zramctl` 
 
 Cloning the directory:
+
 `git clone https://github.com/JetsonHacksNano/resizeSwapMemory`
 
 To change the size of swap file:
-`cd resizeSwapMemory`
-`./setSwapMemorySize.sh -g 6`
+```
+cd resizeSwapMemory
+./setSwapMemorySize.sh -g 6
+```
 
 You can edit the number after -g for preferred amount of memory swap. For further details see his tutorial: https://www.jetsonhacks.com/2019/11/28/jetson-nano-even-more-swap/
 

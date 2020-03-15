@@ -29,6 +29,7 @@ You will notice that there are four entries (one for each CPU of the Jetson Nano
 
 Cloning the directory:
 
+    $ mkdir github
     $ cd github
     $ git clone https://github.com/JetsonHacksNano/resizeSwapMemory
 
@@ -121,9 +122,10 @@ To exit the virtual environment:
     workon v1
 
 ## 3.0 Installing OpenCV 3.4.4
-uninstall preinstalled opencv
+uninstall preinstalled opencv and numpy
 
     sudo apt-get purge libopencv*
+    sudo apt-get purge numpy*
 
 install numpy 
 

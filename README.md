@@ -38,15 +38,7 @@ To change the size of swap file You can edit the number after -g for preferred a
     $ cd resizeSwapMemory
     $ ./setSwapMemorySize.sh -g 6
 
-After that the reboot is required 
-
-    sudo reboot 
-
-To examine the swap memory:
-
-    zramctl 
-
-You can notice that the amount per each CPU increased to 1.5GB - now we have a swap memory of 6GB in total. You can also see that in the in the *System Monitor* App under *Resources*. This app also allows to monitor the usage of your memory throughout inferencing. 
+After that the reboot is required. 
 
 ## 2.2 Max Performance mode
 Now it's time to power Jetson Nano with 5V-4A power supply. Don't forget to put jumper pin/wire on the connectors. 
@@ -54,16 +46,21 @@ Now it's time to power Jetson Nano with 5V-4A power supply. Don't forget to put 
 Jetson Nano can run either on 5W or 10W. We want 10W, so run:
 
     $ sudo nvpmodel -m 0
-    $ sudo ~/jetson_clocks.sh
+    $ sudo jetson_clocks
+
+
+To examine the swap memory:
+
+    zramctl 
+
+You can notice that the amount per each CPU increased to 1.5GB - now we have a swap memory of 6GB in total. You can also see that in the in the *System Monitor* App under *Resources*. This app also allows to monitor the usage of your memory throughout inferencing. 
+
 
 ## 2.3 Python3 and Pip 
 Python3 comes preinstalled to Jetson Nano as a part of JetPack. You can check your version by running 
 
     python3 --version
 
-To quit python3 environment
-
-    quit()
 
 Pip is python package installer. To install pip run
 
@@ -72,9 +69,9 @@ Pip is python package installer. To install pip run
 ## 2.4 Virtual Environment
 I was naive and decided not to install virtual environment from the beginning of the project. Then I learnt that some packages are incompatible with others so I had to reflash the SD card multiple times. Please learn on my mistakes and work in virtual environment, it would save you from stress and tears. 
 
-To install virtual environment package
+To install virtual environment package and virtual environment wrapper which contains set of functions to handle virtual environment (as well as remove it if needed)
 
-    sudo pip3 install virtualenv
+    sudo pip3 install virtualenv virtualenvwrapper
 
 Create a hidden folder which would hold your virtual environments
 
@@ -84,29 +81,18 @@ You can check that it exists by running
 
     ls -a 
 
- Installing virtual environment wrapper which contains set of functions to handle virtual environment (as well as roemove it if needed)
+Modify /.bashrc  file by 
 
-    sudo pip3 install virtualenvwrapper
-
-To set a location for virtual environments:
-
-    export WORKON_HOME=~/.virtualenvs
-
-Install and run nano
-
-    $ sudo apt install nano
-    $ nano ~/.bashrc
-
-Scroll to the bottom with arrow key and add two lines
-
-    $ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    $ ./usr/local/bin/virtualenvwrapper.sh
+    $ echo -e "\n# virtualenv and virtualenvwrapper" >> ~/.bashrc
+    $ echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
+    $ echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3" >> ~/.bashrc
+    $ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 
 Press *ctr+X* on the keyboard, *y* to save it and then *enter* to proceed
 
 To finally install virtual environment
 
-    . .bashrc
+    source ~/.bashrc
 
  To create a virtual environment with the name *v1*
 
@@ -121,19 +107,27 @@ To exit the virtual environment:
 
     workon v1
 
-## 3.0 Installing OpenCV 3.4.4
-uninstall preinstalled opencv and numpy
+## 3.0 Installing OpenCV 3.4.0
+uninstall preinstalled opencv 
 
     sudo apt-get purge libopencv*
-    sudo apt-get purge numpy*
 
 install numpy 
 
     pip3 install numpy
 
+Installing OpenCV dependancies. To work with image files:
+
+    $ sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
+    $ sudo apt-get install libjasper-dev
+
+Install following packages so you can work with your camera stream and process video files:
+    
+    $ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+    $ sudo apt-get install libxvidcore-dev libx264-dev
 
 
-https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/
+https://jkjung-avt.github.io/opencv3-on-tx2/
 
 ## 4.0 Running YOLOv3-tiny 
 

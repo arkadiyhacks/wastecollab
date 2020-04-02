@@ -136,10 +136,16 @@ First you train the model and then you deploy it. I trained the model on google 
 
 I do not include the complete guide on how to train the dataset as it depends on the paths to your folder of darknet and navigation within it. However, I would provide main 
 
+
+
 ## 5.0 Deepstream YOLO
 
     $ cd ~/deepstream_sdk_v4.0.2_jetson/sources/objectDetector_Yolo
     $ deepstream-app -c deepstream_app_config_yoloV3_tiny.txt 
+
+    make -C nvdsinfer_custom_impl_Yolo
+
+    # uri=file://1_4.mp4
 
 
 Apparently steps https://forums.developer.nvidia.com/t/yolo-for-deepstream-app/70693#5317562

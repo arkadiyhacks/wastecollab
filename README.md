@@ -107,7 +107,9 @@ To exit the virtual environment:
 
     workon v1
 
-## 3.0 Installing OpenCV 3.4.0
+## 3.0 Installing OpenCV 3.4.4
+This installation is in particular long one. This is a primary reason for virtual environment as uninstalling OpenCV directly is a pain. 
+
 uninstall preinstalled opencv 
 
     sudo apt-get purge libopencv*
@@ -129,8 +131,20 @@ Install following packages so you can work with your camera stream and process v
 
 https://jkjung-avt.github.io/opencv3-on-tx2/
 
-## 4.0 Running YOLOv3-tiny 
+## 4.0 Running YOLOv3-tiny with OpenCV
+First you train the model and then you deploy it. I trained the model on google colab. I uploaded darknet repository and images with annotations to my google drive. Then I mounted google drive into the google colab. Colab gives free GPU, so it is perfect for testing, however the given runtime is just 12 hours. Good news - you can continue training on your last iteration. So I managed to train the dataset with about 2800 images up to 53 000 iterations and it took me about 30 hours in total. The more you train the smaller the loss function --> the more accurate is the algorithm. The function converges at some point meaning the loss function does not get smaller, meaning you can stop training. The code was optimized based on the tutorial by Ivan Goncharov. 
 
-https://www.youtube.com/watch?v=p1fJFG1S6Sw
-https://jkjung-avt.github.io/yolov3/
+I do not include the complete guide on how to train the dataset as it depends on the paths to your folder of darknet and navigation within it. However, I would provide main 
+
+## 5.0 Deepstream YOLO
+
+    $ cd ~/deepstream_sdk_v4.0.2_jetson/sources/objectDetector_Yolo
+    $ deepstream-app -c deepstream_app_config_yoloV3_tiny.txt 
+
+
+Apparently steps https://forums.developer.nvidia.com/t/yolo-for-deepstream-app/70693#5317562
+Steps as well https://github.com/anguoyang/deepstream-plugins
+
+
+https://forums.developer.nvidia.com/t/deepstream-gst-nvstreammux-change-width-and-height-doesnt-affect-fps/83286
 

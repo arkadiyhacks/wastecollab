@@ -142,7 +142,18 @@ I do not include the complete guide on how to train the dataset as it depends on
 
     $ cd ~/deepstream_sdk_v4.0.2_jetson/sources/objectDetector_Yolo
     $ deepstream-app -c deepstream_app_config_yoloV3_tiny.txt 
+    
+    
+editing deepstream_app_config_yoloV3_tiny.txt to enable CSI camera (Raspberry Pi)
+4=RTSP 5=CSI
+type=5
+camera-width=1280
+camera-height=720
+camera-fps-n=30
+camera-fps-d=1
+num-sources=1
 
+    export CUDA_VER=10.0
     make -C nvdsinfer_custom_impl_Yolo
 
     # uri=file://1_4.mp4

@@ -134,7 +134,6 @@ https://jkjung-avt.github.io/opencv3-on-tx2/
 ## 4.0 Running YOLOv3-tiny with OpenCV
 First you train the model and then you deploy it. I trained the model on google colab. I uploaded darknet repository and images with annotations to my google drive. Then I mounted google drive into the google colab. Colab gives free GPU, so it is perfect for testing, however the given runtime is just 12 hours. Good news - you can continue training on your last iteration. So I managed to train the dataset with about 2800 images up to 53 000 iterations and it took me about 30 hours in total. The more you train the smaller the loss function --> the more accurate is the algorithm. The function converges at some point meaning the loss function does not get smaller, meaning you can stop training. The code was optimized based on the tutorial by Ivan Goncharov. 
 
-I do not include the complete guide on how to train the dataset as it depends on the paths to your folder of darknet and navigation within it. However, I would provide main 
-
+I do not include the complete guide on how to train the dataset as it depends on the paths to your folder of darknet and navigation within it. 
 
 
